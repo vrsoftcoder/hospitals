@@ -2,3 +2,6 @@ section.customer_login {
     margin: 100px auto;
     width: 20%;
 }
+.loginusingotp{
+    display: none;
+}

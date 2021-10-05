@@ -22,9 +22,9 @@ function storeData(data,url){
             async:false,
           }).done(function(res) {
           	console.log(res.token.plainTextToken);
-          	localStorage.setItem("token", res.token.plainTextToken);
+          	localStorage.setItem("ff_token", res.token.plainTextToken);
           	// if(res.status = 'success'){
-          	// 	location.href = siteurl+'customer/dashboard';
+          		location.href = siteurl+'customer/dashboard';
           	// }
           })
 }

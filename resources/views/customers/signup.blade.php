@@ -25,9 +25,9 @@
                 <input type="checkbox" name="checkmeout" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <span><a href="javascript:void(0)"> Or Signup using OTP</a></span>
-              </div> 
+              </div>  -->
             </div> 
             <div class="loginusingotp">
               <div class="form-group">

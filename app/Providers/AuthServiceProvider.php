@@ -28,6 +28,8 @@ class AuthServiceProvider extends ServiceProvider
 
          if (! $this->app->routesAreCached()) {
             Passport::routes();
+            Passport::$ignoreCsrfToken = true;
+            Passport::routes(null, array('prefix' => 'api/oauth', 'middleware'  =>  array('auth:api', 'web', 'auth')));
         }
     }
 }

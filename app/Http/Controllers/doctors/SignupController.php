@@ -37,8 +37,9 @@ class SignupController extends Controller
 
         if($user->save()){
             if (Auth::attempt(['email' => $request->youremail, 'password' => $request->password])) {
-                $token = $user->createToken('my token');
-                return (new Response(['status'=>'success','token'=>$token], '200'));
+                $user = Auth::user();
+                $user_login_token = $user->createToken('MyApp')->accessToken;
+                return (new Response(['status'=>'success','token'=>$user_login_token], '200'));
             }
             else{
                 return (new Response(['status'=>'error'], '200'));

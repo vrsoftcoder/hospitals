@@ -42,12 +42,14 @@ class SignupController extends Controller
         $user->role = 'customer';
 
         if($user->save()){
-            if (Auth::attempt(['email' => $request->youremail, 'password' => $request->password])) {
-                $token = $user->createToken('my token');
-                return (new Response(['status'=>'success','token'=>$token], '200'));
-            }
-            else{
-                return (new Response(['status'=>'error'], '200'));
+            if(auth()->attempt($login_credentials)){
+            //generate the token for the user
+                $user = Auth::user();
+                $user_login_token = $user->createToken('MyApp')->accessToken;
+                return (new Response(['status'=>'success','token'=>$user_login_token], '200'));
+               } 
+               else{
+                return (new Response(['status'=>'error','msg'=>'Wrong Credentials!'], '200'));
             }
         }
         else{
